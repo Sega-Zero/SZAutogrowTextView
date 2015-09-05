@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'SZAutogrowTextView_Example', :exclusive => true do
+  pod "SZAutogrowTextView", :path => "../"
+  
+end

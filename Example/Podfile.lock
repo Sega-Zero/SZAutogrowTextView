@@ -1,0 +1,14 @@
+PODS:
+  - SZAutogrowTextView (0.1.0)
+
+DEPENDENCIES:
+  - SZAutogrowTextView (from `../`)
+
+EXTERNAL SOURCES:
+  SZAutogrowTextView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SZAutogrowTextView: a20eb66068667f52e09be36a030a4db53c2b2330
+
+COCOAPODS: 0.38.2

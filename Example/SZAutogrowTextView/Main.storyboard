@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="wQg-tq-qST">
+            <objects>
+                <viewController id="whP-gf-Uak" customClass="SZViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cO9-G1-TVv" userLabel="Bottom Container View">
+                                <rect key="frame" x="0.0" y="552" width="600" height="48"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJM-UA-9ph" userLabel="line separator">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="KbB-PS-kt3"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anK-il-LRi" userLabel="Attach Button">
+                                        <rect key="frame" x="0.0" y="2" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="UFy-II-lI1"/>
+                                            <constraint firstAttribute="height" constant="44" id="iVy-vH-CgT"/>
+                                        </constraints>
+                                        <state key="normal" image="clip">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4t-17-9pD">
+                                        <rect key="frame" x="44" y="8" width="492" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="j62-Dy-OQ4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTO-5g-spa">
+                                        <rect key="frame" x="544" y="9" width="36" height="30"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AdA-0I-wlK" customClass="SZAutogrowTextView">
+                                        <rect key="frame" x="44" y="8" width="492" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="fc2-6V-Z5p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="whP-gf-Uak" id="1MP-9p-wOB"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="AdA-0I-wlK" secondAttribute="height" constant="15" id="1cV-oL-xRw"/>
+                                    <constraint firstItem="AdA-0I-wlK" firstAttribute="bottom" secondItem="L4t-17-9pD" secondAttribute="bottom" id="6jO-Wa-K8H"/>
+                                    <constraint firstItem="AdA-0I-wlK" firstAttribute="top" secondItem="L4t-17-9pD" secondAttribute="top" id="JXI-ct-mWO"/>
+                                    <constraint firstItem="LTO-5g-spa" firstAttribute="centerY" secondItem="L4t-17-9pD" secondAttribute="centerY" id="JeE-ya-2GH"/>
+                                    <constraint firstItem="AdA-0I-wlK" firstAttribute="trailing" secondItem="L4t-17-9pD" secondAttribute="trailing" id="P3e-gq-ZWB"/>
+                                    <constraint firstAttribute="bottom" secondItem="L4t-17-9pD" secondAttribute="bottom" constant="7" id="PNO-Wn-mZI"/>
+                                    <constraint firstItem="VJM-UA-9ph" firstAttribute="leading" secondItem="cO9-G1-TVv" secondAttribute="leading" id="PWo-L3-O3D"/>
+                                    <constraint firstItem="anK-il-LRi" firstAttribute="leading" secondItem="cO9-G1-TVv" secondAttribute="leading" id="VLV-vz-KbO"/>
+                                    <constraint firstItem="LTO-5g-spa" firstAttribute="leading" secondItem="L4t-17-9pD" secondAttribute="trailing" constant="8" symbolic="YES" id="Yzn-AS-aYn"/>
+                                    <constraint firstAttribute="trailing" secondItem="VJM-UA-9ph" secondAttribute="trailing" id="cHE-2A-53z"/>
+                                    <constraint firstItem="anK-il-LRi" firstAttribute="centerY" secondItem="LTO-5g-spa" secondAttribute="centerY" id="cZu-Hh-6NM"/>
+                                    <constraint firstItem="L4t-17-9pD" firstAttribute="leading" secondItem="anK-il-LRi" secondAttribute="trailing" id="ciL-xS-uCN"/>
+                                    <constraint firstItem="VJM-UA-9ph" firstAttribute="top" secondItem="cO9-G1-TVv" secondAttribute="top" id="i5k-s6-baC"/>
+                                    <constraint firstAttribute="trailing" secondItem="LTO-5g-spa" secondAttribute="trailing" constant="20" symbolic="YES" id="wxV-AV-D6j"/>
+                                    <constraint firstItem="AdA-0I-wlK" firstAttribute="leading" secondItem="L4t-17-9pD" secondAttribute="leading" id="xRd-UV-ahs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cO9-G1-TVv" secondAttribute="trailing" id="Umb-0G-tq9"/>
+                            <constraint firstAttribute="bottom" secondItem="cO9-G1-TVv" secondAttribute="bottom" id="jMB-cj-Lb7"/>
+                            <constraint firstItem="cO9-G1-TVv" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="l20-PC-N6K"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="0Ix-ld-1aO" appends="YES" id="gDs-4X-vrx"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextInput" destination="AdA-0I-wlK" id="Fu7-1U-XFN"/>
+                        <outlet property="placeholderTextfield" destination="L4t-17-9pD" id="lSP-6I-xQ3"/>
+                        <outlet property="textInputBottomConstraint" destination="jMB-cj-Lb7" id="RWw-Sp-P1u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0Ix-ld-1aO" userLabel="Hide keyboard Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="whP-gf-Uak" id="dnu-vD-vVX"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="295" y="379"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="clip" width="22" height="20"/>
+    </resources>
+</document>
