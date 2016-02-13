@@ -8,7 +8,7 @@ Yet another autogrow UITextView subclass. No extra work required. No extra const
 
 #Installation
 
-##Cocoapods
+##CocoaPods
 This class is available via [CocoaPods](http://cocoapods.org/). Write this in your `Podfile`:
 
 ```
