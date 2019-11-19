@@ -99,9 +99,13 @@
 
     //in case rotation occurs or width significantly changes - there must be some recalc need
     if (prevWidth != self.bounds.size.width) {
+        __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
-            _hasLastIntrinsicSize = NO;
-            [self invalidateIntrinsicContentSize];
+            if (weakSelf) {
+                typeof(self) __strong strongSelf = weakSelf;
+                strongSelf->_hasLastIntrinsicSize = NO;
+                [strongSelf invalidateIntrinsicContentSize];
+            }
         });
     }
 }
