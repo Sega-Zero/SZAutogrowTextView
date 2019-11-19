@@ -27,6 +27,7 @@
     if (self) {
         self.delegate = self;
         self.animateHeightChange = YES;
+        self.adjustScrollPosition = NO;
     }
 
     return self;
@@ -38,6 +39,7 @@
     if (self) {
         self.delegate = self;
         self.animateHeightChange = YES;
+        self.adjustScrollPosition = NO;
     }
     return self;
 }
@@ -90,7 +92,7 @@
     CGFloat prevHeight = CGRectGetHeight(self.bounds);
     CGFloat prevWidth  = CGRectGetWidth(self.bounds);
     [super setBounds:bounds];
-    if ((int)prevHeight != (int)CGRectGetHeight(bounds)) {
+    if (self.adjustScrollPosition && (int)prevHeight != (int)CGRectGetHeight(bounds)) {
         [self _scrollToVisibleCaretAnimated:NO];
         [self _checkScrollErrors];
     }
@@ -143,27 +145,31 @@
 
 -(void)_doTextChanged {
     _textChanged = YES;
+    [self invalidateIntrinsicContentSize];
+
     if (self.animateHeightChange) {
+        [self.superview setNeedsLayout];
+
         [UIView animateWithDuration:0.2
                               delay:0
                             options:UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
-                             [self invalidateIntrinsicContentSize];
-                             [UIView performWithoutAnimation:^{
-                                 [self _scrollToVisibleCaretAnimated:NO];
-                                 [self _checkScrollErrors];
-                             }];
-                             [self.superview setNeedsLayout];
+                             if (self.adjustScrollPosition) {
+                                 [UIView performWithoutAnimation:^{
+                                     [self _scrollToVisibleCaretAnimated:NO];
+                                     [self _checkScrollErrors];
+                                 }];
+                             }
                              [self.superview layoutIfNeeded];
                          } completion:^(BOOL finished) {
 
                          }];
     } else {
 
-        [self invalidateIntrinsicContentSize];
-
-        [self _scrollToVisibleCaretAnimated:NO];
-        [self _checkScrollErrors];
+        if (self.adjustScrollPosition) {
+            [self _scrollToVisibleCaretAnimated:NO];
+            [self _checkScrollErrors];
+        }
         
         [self.superview layoutIfNeeded];
     }
