@@ -148,6 +148,13 @@
 }
 
 -(void)_doTextChanged {
+    if (_hasLastIntrinsicSize) {
+        if ([self sizeThatFits:self.bounds.size].height == _lastIntrinsicSize.height) {
+            // Нет нужды сбрасывать лейаут, если высота текста не изменилась
+            return;
+        }
+    }
+
     _textChanged = YES;
     [self invalidateIntrinsicContentSize];
 
